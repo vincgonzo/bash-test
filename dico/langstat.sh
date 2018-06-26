@@ -12,7 +12,9 @@ else
 fi
 
 # condition de vérification que le fichier exist et ai l'extension .txt
-if [ ! -e $1 ] || [ !"$1" == "*.txt" ];then
+if [ ! $# -ge 1 ];then
+	echo -e 'ERROR -- un fichier en premier paramètre est nécessaire pour faire fonctionner le script'
+elif [ !  ${1: -4} == ".txt" ];then
 	echo -e 'ERROR -- Un fichier text est requis (extension .txt) pour faire fonctionner le script\nEssayer à nouveau svp'
 else
 	filename=$1
